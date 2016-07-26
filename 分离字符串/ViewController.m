@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "NSString+Pinyin.h"
 @interface ViewController ()
 @property(nonatomic,strong)UITextField *textField;
 @end
@@ -161,7 +161,10 @@
     NSLog(@"smallString---->%@",smallString);
   
     
-    
+    //汉字转拼音(适用于摸索搜索)
+    NSString *myString1 = @"我爱北京天安门";
+    NSString *myString2 = [NSString transformToPinyin:myString1];
+    NSLog(@"拼音----->%@",myString2);
     
     
     //创建一个可变字符串
