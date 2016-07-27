@@ -202,6 +202,14 @@
     
      //方法三
     label.attributedText = [NSString string:@"我爱北京天安门" highlightString:@"北京" highlightColor:[UIColor redColor] highlightFont:20];
+    
+    
+    
+    //根据字体大小获取某段文本内容的宽度
+    CGFloat stringWidth = [myString1 getWidthWithFont:16];
+    NSLog(@"stringWidth----->%f",stringWidth);
+    
+    
 }
 
 

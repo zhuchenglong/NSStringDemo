@@ -39,6 +39,11 @@
  */
 +(NSMutableAttributedString *)string:(NSString *)string highlightString:(NSString *)highlightString highlightColor:(UIColor *)highlightColor highlightFont:(CGFloat)highlightFont;
 
+
+//根据字体大小获取某段文本内容的宽度
+- (CGFloat)getWidthWithFont:(CGFloat)textFont;
+
+
 //过滤字符串中的特殊符号(方法一)
 +(NSString *)deleteSpace:(NSString *)telephoneNum;
 

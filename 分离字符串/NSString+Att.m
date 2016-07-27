@@ -64,6 +64,20 @@
     return att;
 }
 
+//获取文本内容的长度
+- (CGFloat)getWidthWithFont:(CGFloat)textFont{
+    
+    //如果没有设置vc的title，设置抛异常
+    if ([self isKindOfClass:[NSNull class]]) {
+        NSException *exception = [NSException exceptionWithName:@"NSString+AttributeException" reason:@"未设置对应的title属性" userInfo:nil];
+        [exception raise];
+    }
+    
+    CGRect titleBounds = [self boundingRectWithSize:CGSizeMake(MAXFLOAT, 0) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:textFont]} context:nil];
+    
+    return titleBounds.size.width;
+}
+
 
 //删除号码中的空格和横线(方法一)
 +(NSString *)deleteSpace:(NSString *)telephoneNum{
