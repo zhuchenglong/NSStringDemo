@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "NSString+Pinyin.h"
+#import "NSString+Att.h"
+#define kHeight [UIScreen mainScreen].bounds.size.height
+#define kWidth  [UIScreen mainScreen].bounds.size.width
 @interface ViewController ()
 @property(nonatomic,strong)UITextField *textField;
 @end
@@ -51,15 +54,15 @@
     
     //4、过滤字符串里面的特殊符号（替换的方法）
     NSString *telephoneNum = @"1866--6666 666";
-    NSString *telephone = [self deleteSpace:telephoneNum];
-    NSLog(@"telephone---->%@",telephone);
+    NSString *telephone = [NSString deleteSpace:telephoneNum];
+    NSLog(@"替换的方法telephone---->%@",telephone);
     
     
    
     //5、过滤字符串的特殊字符
     NSString *oldString = @"1^8~、‘~6![5 $@$&1'3-5*8}8=9)8#";
-    NSString *newString = [self deleteCustomSign:oldString];
-    NSLog(@"newString---->%@",newString);
+    NSString *newString = [NSString deleteCustomSign:oldString];
+    NSLog(@"集合的方法telephone---->%@",newString);
     
     
     
@@ -97,29 +100,29 @@
     NSLog(@"%c",c);
     
     //字符串查找：判断是否以参数给定的字符串开头,是返回真，不是返回假。
-    BOOL result1 = [string hasPrefix:@"he"];
+    BOOL result1 = [string1 hasPrefix:@"he"];
     NSLog(@"%d",result1);
     
    // 字符串查找：判断是否以参数给定的字符串结尾,是返回真，不是返回假。
-    BOOL result2 = [string hasSuffix:@"gth"];
+    BOOL result2 = [string1 hasSuffix:@"gth"];
      NSLog(@"%d",result2);
     
     
     //字符串查找：使用一个结构体NSRange：location(要查找的起始位置）和length(从当前位置向后数多长）
-    NSRange range1 = [string rangeOfString:@"llo"];
+    NSRange range1 = [string1 rangeOfString:@"llo"];
     NSLog(@"%d",range1);
     
     // 字符串查找：根据范围信息获取到这个范围的字符串
     NSRange range2 = NSMakeRange(2, 4);
-    NSString *string2 = [string substringWithRange:range2];
+    NSString *string2 = [string1 substringWithRange:range2];
     NSLog(@"%@",string2);
     
     //字符串查找：获取指定位置开始一直到字符串结束位置的字符串
-    NSString *string3 = [string substringFromIndex:3];
+    NSString *string3 = [string1 substringFromIndex:3];
     NSLog(@"%@",string3);
     
     //字符串查找：获取从开始位置一直到指定位置字符串(并不获取指定位置上的字符)
-    NSString *string4 = [string substringToIndex:3];
+    NSString *string4 = [string1 substringToIndex:3];
     NSLog(@"%@",string4);
     
     //字符串操作：字符串拼接:将两个字符串拼接在一起后形成一个新的字符串，原来两个字符串并未发生改变
@@ -164,7 +167,10 @@
     //汉字转拼音(适用于摸索搜索)
     NSString *myString1 = @"我爱北京天安门";
     NSString *myString2 = [NSString transformToPinyin:myString1];
-    NSLog(@"拼音----->%@",myString2);
+    NSLog(@"拼音1：%@",myString2);
+    
+    NSString *myString3 = [NSString chineseTransformToPinyin:myString1];
+    NSLog(@"拼音2：%@",myString3);
     
     
     //创建一个可变字符串
@@ -182,31 +188,23 @@
     //可变字符串中删除字符串
     [mString deleteCharactersInRange:NSMakeRange(1, 2)];
     
+    
+    
+    //设置高亮字符串
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 50, kWidth-40, 30)];
+    label.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:label];
+    //方法一
+    //label.attributedText = [NSString string:@"我爱北京天安门" highlightSign:@"北" length:2 highlightColor:[UIColor redColor]];
+    
+    //方法二
+    //label.attributedText = [NSString string:@"我爱北京天安门" fromIndex:2 length:2 highlightColor:[UIColor redColor]];
+    
+     //方法三
+    label.attributedText = [NSString string:@"我爱北京天安门" highlightString:@"北京" highlightColor:[UIColor redColor] highlightFont:20];
 }
 
 
-//删除号码中的空格和横线
--(NSString *)deleteSpace:(NSString *)telephoneNum{
-    //处理电话号码中的空格
-    NSString *telephoneStr1 = [telephoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    //处理号码中的 -
-    NSString *telephoneStr2 = [telephoneStr1 stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    
-    return telephoneStr2;
-}
-
-//过滤字符串中的特殊符号
--(NSString *)deleteCustomSign:(NSString *)string{
-
-    //定义一个特殊字符的集合
-    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"@／：；（）¥「」＂‘、! ;[]{}#%-*+=_\\|~＜＞$€^•'@#$%^&*()_+'\""];
-    
-    //stringByTrimmingCharactersInSet能做到的仅仅是把字符串两端的非法字符过滤，但是包含在字符串里非法字符则无能为力。
-    NSString *newString = [[string componentsSeparatedByCharactersInSet:characterSet]componentsJoinedByString:@""];
-    
-    return newString;
-}
 
 
 - (void)didReceiveMemoryWarning {

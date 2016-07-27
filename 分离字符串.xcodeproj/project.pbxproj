@@ -15,6 +15,7 @@
 		5ED278FA1D45F27100DB9038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED278F81D45F27100DB9038 /* LaunchScreen.storyboard */; };
 		5ED279051D45F27100DB9038 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED279041D45F27100DB9038 /* _____Tests.m */; };
 		5ED279101D45F27100DB9038 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2790F1D45F27100DB9038 /* _____UITests.m */; };
+		5ED92DA31D48984B00EDA199 /* NSString+Att.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED92DA21D48984B00EDA199 /* NSString+Att.m */; };
 		5EEFB0401D4730FE004688BF /* NSString+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEFB03F1D4730FE004688BF /* NSString+Pinyin.m */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		5ED2790B1D45F27100DB9038 /* 分离字符串UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "分离字符串UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED2790F1D45F27100DB9038 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		5ED279111D45F27100DB9038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ED92DA11D48984B00EDA199 /* NSString+Att.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Att.h"; sourceTree = "<group>"; };
+		5ED92DA21D48984B00EDA199 /* NSString+Att.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Att.m"; sourceTree = "<group>"; };
 		5EEFB03E1D4730FE004688BF /* NSString+Pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Pinyin.h"; sourceTree = "<group>"; };
 		5EEFB03F1D4730FE004688BF /* NSString+Pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Pinyin.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +113,8 @@
 				5ED278F11D45F27100DB9038 /* ViewController.m */,
 				5EEFB03E1D4730FE004688BF /* NSString+Pinyin.h */,
 				5EEFB03F1D4730FE004688BF /* NSString+Pinyin.m */,
+				5ED92DA11D48984B00EDA199 /* NSString+Att.h */,
+				5ED92DA21D48984B00EDA199 /* NSString+Att.m */,
 				5ED278F31D45F27100DB9038 /* Main.storyboard */,
 				5ED278F61D45F27100DB9038 /* Assets.xcassets */,
 				5ED278F81D45F27100DB9038 /* LaunchScreen.storyboard */,
@@ -281,6 +286,7 @@
 				5ED278F21D45F27100DB9038 /* ViewController.m in Sources */,
 				5ED278EF1D45F27100DB9038 /* AppDelegate.m in Sources */,
 				5EEFB0401D4730FE004688BF /* NSString+Pinyin.m in Sources */,
+				5ED92DA31D48984B00EDA199 /* NSString+Att.m in Sources */,
 				5ED278EC1D45F27100DB9038 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

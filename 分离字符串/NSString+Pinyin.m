@@ -56,4 +56,19 @@
     return allString;
 }
 
+
++ (NSString *)chineseTransformToPinyin:(NSString *)chineseString;{
+    
+    NSMutableString *pinyin = [chineseString mutableCopy];
+    
+    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
+    
+    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);
+    
+    NSString *pinyinStr = [pinyin stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    return pinyinStr;
+}
+
+
 @end

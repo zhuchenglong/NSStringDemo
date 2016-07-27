@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (Pinyin)
-//获取汉字转成拼音字符串
+//获取汉字转成拼音字符串（适用于模糊搜索）
 + (NSString *)transformToPinyin:(NSString *)aString;
+
+//汉字转拼音
++ (NSString *)chineseTransformToPinyin:(NSString *)chineseString;
+
 @end
